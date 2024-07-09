@@ -1,0 +1,44 @@
+{% extends 'admin/admin_index.html' %}
+{% block body %}
+<body>
+<div class="container mt-5">
+    <h2 class="text-center mb-4">Manage Subjects</h2>
+    <form id="form1" name="form1" method="post" action="/show_sub_code">
+        <div class="mb-3">
+            <label for="course" class="form-label">Select Course</label>
+            <select name="select2" id="crs" class="form-select">
+                {% for i in cor %}
+                <option value="{{ i.id }}">{{ i.course_name }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <button type="submit" class="btn btn-primary mb-3">Show Subjects</button>
+
+        <table class="table table-bordered table-hover">
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col">Subject</th>
+                    <th scope="col">Semester</th>
+                    <th scope="col">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for i in data2 %}
+                <tr>
+                    <td>{{ i.sub_name }}</td>
+                    <td>{{ i.sem }}</td>
+                    <td>
+                        <a href="/delete_sub/{{ i.id }}" class="btn btn-danger btn-sm">Delete</a>
+                        <a href="/admin_edit_subject/{{ i.id }}#intro" class="btn btn-primary btn-sm">Edit</a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </form>
+</div>
+
+<script src="/static/jquery.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+{% endblock %}

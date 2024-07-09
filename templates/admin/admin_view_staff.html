@@ -1,0 +1,40 @@
+{% extends 'admin/admin_index.html' %}
+{% block body %}
+<body>
+<div class="container mt-5">
+    <h2 class="text-center mb-4">Staff List</h2>
+    <form id="form1" name="form1" method="post" action="">
+        <table class="table table-bordered table-hover">
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col">Img</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Dept</th>
+                    <th scope="col">Phone</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">Address</th>
+                    <th scope="col">Assign</th>
+                    <th scope="col">Delete</th>
+                    <th scope="col">Edit</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for i in staff %}
+                    <tr>
+                        <td><img width="50px" src="{{ i.img.url }}" alt="" class="img-fluid" style="height: 100px; width: 150px;"/></td>
+                        <td>{{ i.stf_name }}</td>
+                        <td>{{ i.DEPT.dept_name }}</td>
+                        <td>{{ i.phone }}</td>
+                        <td>{{ i.email }}</td>
+                        <td>{{ i.address }}</td>
+                        <td><a href="/assign_subject/{{ i.id }}#intro" class="btn btn-success btn-sm">Assign</a></td>
+                        <td><a href="/delete_staff/{{ i.id }}" class="btn btn-danger btn-sm">Delete</a></td>
+                        <td><a href="/admin_edit_staff/{{ i.id }}#intro" class="btn btn-primary btn-sm">Edit</a></td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </form>
+</div>
+</body>
+{% endblock %}

@@ -1,0 +1,28 @@
+{% extends 'staff/staff_index.html' %}
+{% block body %}
+<body>
+<div class="container mt-5">
+    <h2 class="text-center mb-4">Subjects Assigned</h2>
+    <form id="form1" name="form1" method="post" action="">
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th scope="col">Subjects Assigned</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        <ul class="list-group">
+                            {% for i in data %}
+                            <li class="list-group-item">{{ i.SUB.sub_name }}</li>
+                            {% endfor %}
+                        </ul>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </form>
+</div>
+</body>
+{% endblock %}

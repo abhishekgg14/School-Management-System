@@ -1,0 +1,28 @@
+
+*****GIT*****Versioning*****
+
+
+git config --global user.name "username"
+
+git config --global user.email "email"
+
+git config --global user.name "userid"
+
+push = git init
+	git add .
+	git commit -m "msg"
+	git remote add origin link
+	git push -u origin master
+
+new branch = git checkout -b branchaName
+	
+
+fetch = git fetch
+	git pull --rebase
+
+
+patient entry
+
+
+
+nestjs=react

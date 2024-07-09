@@ -1,0 +1,29 @@
+{% extends 'admin/admin_index.html' %}
+{% block body %}
+<body>
+<div class="container mt-5">
+    <h2 class="text-center mb-4">Course List</h2>
+    <table class="table table-bordered table-hover">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col">Course Name</th>
+                <th scope="col">Department Name</th>
+                <th scope="col">Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for i in data %}
+                <tr>
+                    <td>{{ i.course_name }}</td>
+                    <td>{{ i.DEPT.dept_name }}</td>
+                    <td>
+                        <a href="/delete_course/{{ i.id }}" class="btn btn-danger btn-sm">Delete</a>
+                        <a href="/admin_edit_course/{{ i.id }}#intro" class="btn btn-primary btn-sm">Edit</a>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+</body>
+{% endblock %}

@@ -1,0 +1,28 @@
+{% extends 'admin/admin_index.html' %}
+{% block body %}
+<body>
+<div class="container mt-5">
+    <h2 class="text-center mb-4">Edit Course</h2>
+    <form id="form1" name="form1" method="post" action="/admin_edit_course_code" class="needs-validation" novalidate>
+        <div class="mb-3">
+            <label for="department" class="form-label">Department</label>
+            <select name="select" id="dp" class="form-select">
+                {% for i in data2 %}
+                    <option value="{{ i.id }}" {% if data.DEPT.id == i.id %} selected {% endif %}>{{ i.dept_name }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <div class="mb-3">
+            <label for="course_name" class="form-label">Course Name</label>
+            <input type="text" name="textfield" id="course_name" value="{{ data.course_name }}" class="form-control" required />
+            <div class="invalid-feedback">
+                Please enter a course name.
+            </div>
+        </div>
+        <div class="text-center">
+            <button type="submit" name="Submit" class="btn btn-primary">Edit</button>
+        </div>
+    </form>
+</div>
+</body>
+{% endblock %}

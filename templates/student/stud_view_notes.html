@@ -1,0 +1,43 @@
+{% extends 'student/stud_index.html' %}
+{% block body %}
+
+<body>
+  <div class="container mt-5">
+    <h2 class="text-center mb-4">View Notes</h2>
+    <form id="form1" name="form1" method="post" action="/show_notes_code#aa">
+      <div class="row mb-3">
+        <label for="select" class="col-sm-2 col-form-label">Subjects</label>
+        <div class="col-sm-8">
+          <select class="form-select" name="select">
+            {% for i in data %}
+              <option value="{{ i.id }}">{{ i.sub_name }}</option>
+            {% endfor %}
+          </select>
+        </div>
+        <div class="col-sm-2">
+          <button type="submit" class="btn btn-primary">View</button>
+        </div>
+      </div>
+    </form>
+
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th>Title</th>
+          <th>Uploaded By</th>
+          <th>Download</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for i in data1 %}
+          <tr>
+            <td>{{ i.title }}</td>
+            <td>{{ i.STAFF.stf_name }}</td>
+            <td><a href="{{ i.file.url }}" class="btn btn-success" download>Download</a></td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</body>
+{% endblock %}

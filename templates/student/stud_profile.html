@@ -1,0 +1,52 @@
+{% extends 'student/stud_index.html' %}
+{% block body %}
+
+<body>
+  <div class="container mt-5">
+    <table class="table table-bordered">
+      <tbody>
+        <tr>
+          <td colspan="2"><img height="70px" width="70px" src="{{ data.img.url }}" alt=""/></td>
+        </tr>
+        <tr>
+          <td>Name</td>
+          <td>{{ data.std_name }}</td>
+        </tr>
+        <tr>
+          <td>Gender</td>
+          <td>{{ data.gender }}</td>
+        </tr>
+        <tr>
+          <td>DOB</td>
+          <td>{{ data.dob }}</td>
+        </tr>
+        <tr>
+          <td>Place</td>
+          <td>{{ data.place }}</td>
+        </tr>
+        <tr>
+          <td>Phone</td>
+          <td>{{ data.phone }}</td>
+        </tr>
+        <tr>
+          <td>Email</td>
+          <td>{{ data.email }}</td>
+        </tr>
+        <tr>
+          <td>Course</td>
+          <td>{{ data.COURSE.course_name }}</td>
+        </tr>
+        <tr>
+          <td>Semester</td>
+          <td>{{ data.sem }}</td>
+        </tr>
+        <tr>
+          <td colspan="2">
+            <a href="/stud_home" class="btn btn-primary">Home</a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</body>
+{% endblock %}

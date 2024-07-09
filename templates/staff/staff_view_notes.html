@@ -1,0 +1,29 @@
+{% extends 'staff/staff_index.html' %}
+{% block body %}
+
+<body>
+<div class="container mt-5">
+    <h2 class="text-center mb-4">Uploaded Notes</h2>
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>Subject</th>
+                <th>File</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for i in data %}
+            <tr>
+                <td>{{ i.title }}</td>
+                <td>{{ i.SUB.sub_name }}</td>
+                <td><a href="{{ i.file.url }}" download class="btn btn-sm btn-outline-primary">Download</a></td>
+                <td><a href="/delete_note/{{ i.id }}" class="btn btn-sm btn-outline-danger">Delete</a></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+</body>
+{% endblock %}

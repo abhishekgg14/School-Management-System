@@ -1,0 +1,26 @@
+{% extends 'admin/admin_index.html' %}
+{% block body %}
+
+</head>
+
+<body>
+<form id="form1" name="form1" method="post" action="/add_course_code" class="container mt-5">
+    <div class="mb-3">
+        <label for="dp" class="form-label">Department</label>
+        <select name="select" id="dp" class="form-select">
+            {% for i in dep %}
+                <option value="{{ i.id }}">{{ i.dept_name }}</option>
+            {% endfor %}
+        </select>
+    </div>
+    <div class="mb-3">
+        <label for="courseName" class="form-label">Course Name</label>
+        <input type="text" name="textfield" id="courseName" class="form-control" required pattern="[A-Za-z]+" />
+    </div>
+    <div class="text-center">
+        <button type="submit" name="Submit" class="btn btn-primary">ADD</button>
+    </div>
+</form>
+</body>
+{% endblock %}
+

@@ -1,0 +1,108 @@
+CLOUD - AWS , GCP , Azure , Digital Ocean
+
+*****
+AWS *
+*****
+
+
+All services->
+Elastic cloud EC2 ->
+Instances->
+Launch instance->
+Give a Name
+choose an OS ->Ubuntu
+choose version - Free tier only 22.04
+CPU - t2.micro 1GB RAM single core -free tier
+key pair login -> create a new key pair
+give a name choose .ppk
+-> create key pair
+
+then a file will be downloaded - do not open or delete that file
+
+Attacks are from port number
+by default all ports are locked - we enable only the one we need - take that from app.js of backend
+
+configure storage
+30gb - do not give above that
+1 instance
+-> Launch Instance
+
+
+select instance and choose instance state for stop,reboot
+purchase static app , and use - IF NOT USED , YOU WILL BE BILLED, so if not using release it
+
+
+to purchase
+ec2 dashboard-> elastic ip address->
+
+now link it with machine
+
+choose actions->associate elastic ip address
+choose instance - blog app
+->associate
+
+go to ec2 dashboard - reboot the instance
+select the instance->security
+inbound security->launch wizard->edit inbound rule
+->add rule- give port no.3001 source as anywhere ->save
+now do same and enable port 3000
+
+Now login to account using amazon account or using putty(FTP & SSH) from windows  or using commandpromt in linux and mac
+
+
+from amazon(ssh protocol)
+click on connect ->connect
+
+now install node and all other things
+sudo apt-get update
+sudo apt install -y curl
+curl -fsSL https://deb.nodesource.com/setup_20.x | sudo -E bash -
+sudo apt install nodejs -y
+node --version
+
+
+to make node app.js to run all time node pm2 processor management
+sudo npm install pm2 -g
+
+now install react
+sudo npm install create-react-app -g
+
+we are going to take project from git
+change links of axios correctly and push to github
+git clone <link from master (merge all to master before this)>
+
+
+ls
+cd blog-app-backend
+ls
+
+to install the node and packages
+npm i
+ls
+
+now instead of node app.js give below command
+pm2 start app.js
+now backend is hosted TADAA !!
+
+now host frontend
+
+connect to console
+cd ..
+git clone <link to front-end>
+ls
+cd blog-app-frontend
+ls
+npm i
+npm start
+
+click on security groups add port 3000
+reboot server
+connect
+start backend
+start front end
+
+
+
+
+
+
